@@ -30,29 +30,37 @@ function searchApi(query, format) {
 
       for (i = 0; i < searchResult.results.length; i++) {
         
-        var titleEl = searchResult.results.i.title;
-        console.log(titleEl);
+        var title = searchResult.results[i].title;
+        console.log(title);
+        var date = searchResult.results[i].date;
+        console.log(date);
+        var subject = searchResult.results[i].subject;
+        console.log(subject);
+        var description = searchResult.results[i].description;
+        console.log(description);
 
-        // var searchResultEl = document.createElement('div');
-        // titleEl = document.createElement('h1');
-        // var dateEl = document.createElement('p');
-        // var subjectEl = document.createElement('p');
-        // var descriptionEl = document.createElement('p');
+        var searchResultEl = document.createElement('div');
+        var titleEl = document.createElement('h2');
+        var dateEl = document.createElement('p');
+        var subjectEl = document.createElement('p');
+        var descriptionEl = document.createElement('p');
         // // var linkEl = document.createElement('button');
 
-        // titleEl.textContent = searchResult.results.title;
-        // console.log(titleEl);
-        // dateEl.textContent = searchResult.results.date;
-        // subjectEl.textContent = searchResult.results.subject;
-        // descriptionEl.textContent = searchResult.results.description;
+        titleEl.textContent = title;
+        console.log(title);
+        dateEl.textContent = "Date : " + date;
+        subjectEl.textContent = "Subject : " + subject;
+        descriptionEl.textContent = "Description : " + description;
         // // linkEl.textContent = "Read More";
 
-        // searchResultEl.appendChild(resultContentEl);
-        // titleEl.appendChild(searchResultEl);
-        // dateEl.appendChild(searchResultEl);
-        // subjectEl.appendChild(searchResultEl);
-        // descriptionEl.appendChild(searchResultEl);
+        resultContentEl.appendChild(searchResultEl);
+        searchResultEl.appendChild(titleEl);
+        searchResultEl.appendChild(dateEl);
+        searchResultEl.appendChild(subjectEl);
+        searchResultEl.appendChild(descriptionEl);
         // // linkEl.appendChild(searchResultEl);
+
+        searchResultEl.setAttribute("style", "border: 2px solid white; margin: 25px; padding: 10px;");
       }
     });
 }
